@@ -1,212 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon/favicon-48x48.png" sizes="48x48" />
-    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-    <link rel="shortcut icon" href="favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="favicon/site.webmanifest" />
-    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/49d834469d.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My portfolio</title>
+  <script src="https://kit.fontawesome.com/49d834469d.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <header id="menuOriginal">
-        <nav class="menuHome">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Portfolio</a>
-                <a href="#">Contacts</a>
-        </nav>
-        <button class="hamburgerMenu closed">
-            <!-- <i class="fa-solid fa-bars"></i> -->
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="social">
-            <ul>
-                <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
-                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
-            </ul>
-        </nav>
-    </header>
-        <div class="mainImage">
-            <img class="myLogo" src="img/Marte.jpeg" alt="">
-            <div class="title">
-                <h3>Berutti Marco</h3>
-                <h4>Full stack developer</h4>
-            </div>
-        </div>
-        <h2>Portfolio</h2>
-        <main class="mainSection">
-            <aside class="asideSection">
-                <article>
-                    <h2>About</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis suscipit expedita harum eius ad velit cumque accusamus quod! Iste doloribus perferendis amet, cumque enim ab itaque dolorem saepe pariatur accusamus.</p>
-                </article>
+  <header id="menuOriginal">
+    <nav class="menuHome">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#tel">Contacts</a>
+    </nav>
+    <button class="hamburgerMenu closed">
+      <!-- <i class="fa-solid fa-bars"></i> -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="social">
+      <ul>
+        <li><a target="_blank" href="https://github.com/marcoberutti"><i class="fa-brands fa-github"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://api.whatsapp.com/send/?phone=393801208036&text='I am interested in your works'&type=phone_number&app_absent=0" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="mainImage">
+    <img class="myLogo" src="img/Marte.jpeg" alt="">
+    <div class="title">
+      <h3>Berutti Marco</h3>
+      <h4>Full stack developer</h4>
+    </div>
+  </div>
+  <h2 id="portfolio">Portfolio</h2>
+  <main class="mainSection">
+    <aside class="asideSection">
+      <article>
+        <h3 id="about">About me</h3>
+        <h4>2024 <span></span> Musa formazione:</h4>
+        <ul>
+          <li>Course: Frontend developer</li>
+          <li>Course: Backend developer</li>
+        </ul>
+      </article>
+      <article class="skills">
+        <h3>My skills</h3>
+        <ul>
+          <li>
+            <span class="skillHtml">HTML</span><meter min="0" max="100" value="80"></meter>
+          </li>
+          <li>
+            <span class="skillCss">CSS</span><meter min="0" max="100" value="90"></meter>
+          </li>
+          <li>                        
+            <span class="skillJs">JS</span><meter min="0" max="100" value="60"></meter>
+          </li>
+          <li>                        
+            <span class="skillJs">REACT</span><meter min="0" max="100" value="20"></meter>
+          </li>
+        </ul>
+      </article>
+        <article class="experience">
+          <h3>Work experience</h3>
+            <h4>2019 <span></span> Azienda Agricola Bressi</h4>
+              <ul>
+                <li>Intership in basic agricolture</li>
+              </ul>
+            <h4>2019-2020 <span></span> BiEsse SPA</h4>
+              <ul>
+                <li>basic cleanings</li>
+                <li>picking from storage</li>
+                <li>Bartolini delivieries</li>
+                <li>International delivieries</li>
+              </ul>
+            <h4>2021-2024 <span></span> Uganda: Village of Joy mission</h4>
+              <ul>
+                <li>Volunteers Hosting</li>
+                <li>Accountability management</li>
+                <li>Mission management help</li>
+                <li>Website, Excel</li>
+              </ul>
+        </article>
+    </aside>
+    <section id="myGithubRepos" class="artSection"></section>
+  </main>
+  <section>
+    <form>
+      <div class="container col-10 col-md-4 my-3 myFormContainer">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="" value="marco@gmail.com">
+        <label for="email">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <textarea type="text" class="form-control" id="message" name="message" placeholder="" value=""></textarea>
+        <label for="message" class="form-label">Your message</label>
+      </div>
+      <button id="submitFormBtn" type="submit" class="btn col-5 disabled">Submit</button>
+      <a id="mailToMe"></a>
+    </form>
+  </div>
+  </section>
+  <footer class="footer">
+    <div class="footerLeft">
+      <ul>
+        <li>Marco Berutti</li>
+        <li>Full stack developer</li>
+        <li>Italy</li>
+      </ul>
+    </div>
+    <div class="footerRight">
+      <ul>
+        <li id="tel">Tel: +39 380 12 08 036</li>
+        <li>Email: marcoberutti90@gmail.com</li>
+        <li>Github: <span><a href="https://github.com/marcoberutti" target="_blank"><i class="fa-brands fa-github"></i></a></span></li>
+      </ul>
+    </div>
+  </footer>
 
-                <article class="skills">
-                    <h2>my skills</h2>
-                    <ul>
-                        <li>
-                            <span class="skillHtml">HTML</span><meter min="0" max="100" value="80"></meter>
-                        </li>
-                        <li>
-                            <span class="skillCss">CSS</span><meter min="0" max="100" value="90"></meter>
-                        </li>
-                        <li>                        
-                            <span class="skillJs">JS</span><meter min="0" max="100" value="20"></meter>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="experience">
-                    <h2>work experience</h2>
-                        <h4>2019 <span></span> Azienda Agricola Bressi</h4>
-                            <h5>Dove</h5>
-                            <p>raccolta pomodori</p>
-                        <h4>2019 <span></span> Azienda Agricola Bressi</h4>
-                            <h5>Dove</h5>
-                            <p>raccolta pomodori</p>
-                        <h4>2019 <span></span> Azienda Agricola Bressi</h4>
-                            <h5>Dove</h5>
-                            <p>raccolta pomodori</p>
-                </article>
-            </aside>
-            <section class="artSection">
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                            <span class="badge">NEW</span>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-                    <div class="art">
-                        <div>
-                            <header class="headContainer"></header>
-                        </div>                    
-                        <section>
-                            <h3>My first card</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam voluptatibus, praesentium assumenda sit aspernatur nam labore laboriosam repellat animi voluptatum, id eveniet omnis nulla quibusdam facilis alias, iure explicabo pariatur?</p>
-                        </section>
-                        <footer>
-                            <a href="#" target="_blank"><span>Dettagli</span></a>
-                        </footer>
-                    </div>
-            </section>
-        </main>
-        <section>
-            <div class="form">
-                <h4>Text me</h4>
-                <label for="email">Email</label>
-                <input name="email" type="email" autocomplete="email">
-                <label for="name">Name</label>
-                <input name="name" type="text" autocomplete="name">
-                <label for="textarea">Comments</label>
-                <textarea name="textarea" type="text"></textarea>
-                <button class="sendForm">Send form</button>
-            </div>
-        </section>
-        <footer class="footer">
-            <div class="footerLeft">
-                    <ul>
-                        <li>Marco Berutti</li>
-                        <li>Full stack developer</li>
-                        <li>Italy</li>
-                    </ul>
-            </div>
-            <div class="footerRight">
-                <ul>
-                    <li>Marco Berutti</li>
-                    <li>Full stack developer</li>
-                    <li>Italy</li>
-                </ul>
-            </div>
-        </footer>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script> -->
 </body>
 </html>
