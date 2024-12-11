@@ -193,9 +193,8 @@ h2 {
     align-content: center;
     gap: 15px;
     margin: 10px;
-    flex: 1 1 300px; /* Cresce in modo proporzionale con la sezione principale */
-    flex-grow: 2; /* Dà priorità di crescita rispetto alla sezione principale */
-    max-width: 400px; /* Limite massimo per evitare sezioni troppo larghe */
+    flex: 1 1 400px;
+    max-width: 400px;
 }
 
 aside span:not(.skills span):after {
@@ -216,6 +215,16 @@ aside h4 {
 aside p, aside ul, aside li {
   margin: 5px 0 ;
   font-size: 0.9rem;
+}
+
+.certificate {
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+  color: #315481fb;
+}
+
+.certificate:hover {
+  border-bottom: 2px solid gold;
 }
 
 .asideSection article {
@@ -280,8 +289,7 @@ meter::-webkit-meter-bar{
     gap: 15px;
     margin: 20px;
     flex: 1 1 500px;
-    flex-grow: 1; /* Cresce meno rispetto ad asideSection */
-    min-width: 300px; /* Mantiene una larghezza minima */
+    min-width: 200px;
   }
   
   .art {

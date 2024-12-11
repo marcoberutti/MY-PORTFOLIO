@@ -110,3 +110,13 @@ hamburgerMenuBtn.addEventListener('click', function(){
   })
   
 })
+
+let skillsList = document.querySelector('.skills ul')
+let skillsItem = Array.from(skillsList.children)
+
+skillsItem.sort((a,b) => {
+  let valueA = a.querySelector('meter').value;
+  let valueB = b.querySelector('meter').value;
+  return valueB - valueA
+})
+skillsItem.forEach(item => skillsList.appendChild(item));
