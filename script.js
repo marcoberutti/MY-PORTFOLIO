@@ -15,6 +15,7 @@ async function fetchGitHubRepos(){
     let timestamp = Date.parse(repo.created_at)
     let date = new Date(timestamp)
     let myDate = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`
+    console.log(repo.name.replaceAll('-', ' ').replaceAll('  ', ' '))
     myRepo.innerHTML = `
         <div>
           <header class="headContainer">
@@ -22,8 +23,8 @@ async function fetchGitHubRepos(){
           </header>
         </div>
         <section>
-          <h4>${repo.name}</h4>
-          <p>${repo.description || 'No descriptions yet'}</p>
+          <h4>${repo.name.replaceAll('-', ' ').replaceAll('  ', ' ')}</h4>
+          <p>${repo.description || 'No descriptions yet...'}</p>
           <p>repo created the ${myDate}</p>
         </section>
         <footer>
