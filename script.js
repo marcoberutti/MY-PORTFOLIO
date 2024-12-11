@@ -1,8 +1,7 @@
 let myReposContainer = document.querySelector('#myGithubRepos');
 const reposUrl = 'https://api.github.com/users/marcoberutti/repos';
-let today = new Date()
-const lastMonth = new Date(today)
-lastMonth.setMonth(lastMonth.getMonth()-1)
+const lastMonth = new Date()
+lastMonth.setDate((lastMonth.getDate()-15))
 
 async function fetchGitHubRepos(){
   const repos = await fetch(reposUrl)
@@ -31,7 +30,7 @@ async function fetchGitHubRepos(){
             <a href="${repo.html_url}" target="_blank"><span>Link to repo</span></a>
         </footer>
     `
-    myReposContainer.append(myRepo)
+    myReposContainer.prepend(myRepo)
   })
 )
   .catch(errorDivShowing)
@@ -75,3 +74,39 @@ form.addEventListener('submit', function(e){
     }
   })
 
+let hamburgerMenuBtn = document.querySelector('.hamburgerMenu')
+let menu = document.querySelector('.menuHome')
+
+window.addEventListener('resize', function(){
+  if(this.innerWidth > 768){
+    menu.classList.remove('visible')
+    menu.classList.remove('notShown')
+  }
+})
+
+hamburgerMenuBtn.addEventListener('click', function(){
+
+  if(menu.classList.contains('visible')){
+    menu.classList.add('notShown')
+    menu.classList.remove('visible')
+  } else {
+    menu.classList.add('visible')
+    menu.classList.remove('notShown')
+  }
+  if(this.classList.contains('hamburgerMenuAnimation')){
+    this.classList.remove('hamburgerMenuAnimation')
+  } else {
+    this.classList.add('hamburgerMenuAnimation')
+  }
+
+  let menuAnchors = document.querySelectorAll('.menuHome a')
+
+  menuAnchors.forEach(menuAnchor =>{
+    menuAnchor.addEventListener('click', function(){
+      menu.classList.add('notShown')
+      menu.classList.remove('visible')
+      hamburgerMenuBtn.classList.remove('hamburgerMenuAnimation')
+    })
+  })
+  
+})

@@ -51,16 +51,16 @@ header li {
     opacity: 1;
 }
 
-.hamburgerMenu:hover span:nth-child(1) {
+.hamburgerMenuAnimation span:nth-child(1) {
     transform: rotate(45deg);
     top: 7px;
 }
 
-.hamburgerMenu:hover span:nth-child(2) {
+.hamburgerMenuAnimation span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburgerMenu:hover span:nth-child(3) {
+.hamburgerMenuAnimation span:nth-child(3) {
     transform: rotate(-45deg);
     bottom: 7px;
 }
@@ -69,9 +69,9 @@ header li {
   top: 0;
   width: 100%;
   position: fixed;
-    background-image: 
-        linear-gradient(90deg, black, rgba(255, 255, 255, 0.288)), 
-        linear-gradient(180deg, #150c70, #6583aafb);
+  background-image: 
+    linear-gradient(90deg, black, rgba(255, 255, 255, 0.288)), 
+    linear-gradient(180deg, #150c70, #6583aafb);
 }
 
 .menuHome {
@@ -95,13 +95,21 @@ header li {
   gap: 10px;
 }
 
+.social li  {
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  padding: 5px;
+}
+
+.social i::before {
+  padding: 5px;
+}
+
 .social li:nth-child(odd):hover {
-  margin-bottom: 3px;
   border-radius: 50%;
   border-bottom: 3px solid yellow;
 }
 .social li:nth-child(even):hover {
-  margin-top: 3px;
   border-radius: 50%;
   border-top: 3px solid yellow;
 }
@@ -110,6 +118,7 @@ header li {
     padding: 10px 10px 5px 10px;
     color: white;
     text-decoration: none;
+    border: 2px solid transparent;
 }
 
 .social ul {
@@ -121,6 +130,7 @@ header li {
     color: white;
     text-decoration: none;
 }
+
         /* TITOLO E NOME */
 .mainImage{
     position: relative;
@@ -205,7 +215,7 @@ aside h4 {
     font-size: 0.9rem;
 }
 
-aside p, ul, li {
+aside p, aside ul, aside li {
   margin: 5px 0 ;
   font-size: 0.9rem;
 }
@@ -403,19 +413,27 @@ meter::-webkit-meter-bar{
 }
 
 /* FOOTER */
+
 .footer {
     height: fit-content;
     background-color: var(--primaryColor);
     display: flex;
     justify-content: space-between;
+    padding: 25px 10px 0 10px;
+  }
+  
+.footer div {
+  font-size: 1.2rem;
+  line-height: 2.5em;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
-.footer div {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: white;
+.footer div:nth-child(2){
+  justify-content: center;
 }
 
 .footer ul {
@@ -424,10 +442,11 @@ meter::-webkit-meter-bar{
     flex-direction: column;
     justify-content: center;
     list-style: none;
-    padding: 15px;
+    padding: 0 15px;
 }
 
 .footerRight {
+  justify-content: flex-end;
   text-align: right;
 }
 
@@ -462,70 +481,140 @@ meter::-webkit-meter-bar{
 
 @media screen and (max-width: 768px) {
 
-    .hamburgerMenu{
-        display: block;
-        padding: 20px;
-        background-color: transparent;
-        border: none;
-        color: white;
-        cursor: pointer;
+  .hamburgerMenu{
+    display: block;
+    margin: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+    position: relative;
+  }
+  
+  html, body {
+    font-size: 0.95rem;
+  }
+
+  header {
+    height: 5%;
+  }
+
+  header li {
+    font-size: 1.3rem;
+  }
+
+    @keyframes scrollDown {
+      from {
+        opacity: 0;
+        top: 	-100px;
+      }
+      to {
+        opacity: 1;
+        top: 50px;
+      }
     }
     
-    html, body {
-        font-size: 0.95rem;
+    @keyframes scrollUp {
+      from {
+        opacity: 1;
+        top: 50px;
+      }
+      to {
+        opacity: 0;
+        top: 	-100px;
+      }
     }
 
-    header {
-        height: 5%;
-    }
+  .menuHome {
+    display: none;
+  }
+  
+  .visible {
+    z-index: inherit;
+    padding: 20px;
+    width: fit-content;
+    display: none;
+    position: absolute;
+    top: 50px;
+    flex-direction: column;
+    background-image: 
+    linear-gradient(186deg, rgba(0,0,0,0), rgba(0,0,0,0) 12.71%),      
+    linear-gradient(360deg, rgba(49, 84, 129, 1), rgba(49, 84, 129, 0) 100.71%),      
+    linear-gradient(370deg, rgba(49, 84, 129, 0.01), rgba(49, 84, 129, 0.01) 100.71%);
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    display: flex;
+    animation: scrollDown 500ms linear forwards;
+  }
 
-    header li {
-        font-size: 1.3rem;
-    }
+  .notShown {
+    z-index: inherit;
+    padding: 20px;
+    width: fit-content;
+    position: absolute;
+    top: 50px;
+    flex-direction: column;
+    background-image: 
+    linear-gradient(186deg, rgba(0,0,0,0), rgba(0,0,0,0) 12.71%),      
+    linear-gradient(360deg, rgba(49, 84, 129, 1), rgba(49, 84, 129, 0) 100.71%),      
+    linear-gradient(370deg, rgba(49, 84, 129, 0.01), rgba(49, 84, 129, 0.01) 100.71%);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    opacity: 1;
+    animation: scrollUp 500ms linear forwards;
+  }
+  
+  .mainSection {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
 
-    .menuHome {
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0;
-        right: 0;
-        height: 100vh;
-        flex-direction: column;
-        background-color: #315481fb;
-        z-index: 10;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .mainSection {
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-    }
+  .asideSection {
+    min-width: calc(90% - 40px);
+    justify-self: center;
+  }
 
-    .asideSection {
-      min-width: calc(90% - 40px);
-      justify-self: center;
-    }
+  .asideSection article{
+    max-width: none;
+  }
 
-    .asideSection article{
-      max-width: none;
-    }
+  .artSection {
+    min-width: calc(90% - 40px);
+    justify-content: space-between;
+    display: flex;
+  }
 
-    .artSection {
-      min-width: calc(90% - 40px);
-      justify-content: space-between;
-      display: flex;
-    }
+  .artSection p {
+    padding: 20px;
+    margin-bottom: 15%;
+}
 
-    .artSection p {
-        padding: 20px;
-        margin-bottom: 15%;
-    }
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
 
-    .menuHome {
-        display: none;
-    }
+  .footer div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    line-height: 1.8em;
+    font-size: 1rem;
+  }
+
+  .footer ul {
+    display: flex;
+    text-align: center;
+  }
+
+  .footerLeft {
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 576px) {
