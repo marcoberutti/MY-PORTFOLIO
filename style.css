@@ -153,15 +153,13 @@ header li {
     filter: brightness(160%);
   }
 
-  .title {
+.title {
     width: 259px;
     height: 260px;
     position: absolute;
+    right: 0;
     justify-items: right;
-    top: 75px;
-    right: 122px;
-    color: rgb(255, 232, 103);
-    box-shadow: white 0px 0px 20px 11px;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,7 +192,7 @@ h2 {
     justify-content: flex-start;
     align-content: center;
     gap: 15px;
-    margin: 20px;
+    margin: 10px;
     flex: 1 1 300px; /* Cresce in modo proporzionale con la sezione principale */
     flex-grow: 2; /* Dà priorità di crescita rispetto alla sezione principale */
     max-width: 400px; /* Limite massimo per evitare sezioni troppo larghe */
@@ -479,7 +477,7 @@ meter::-webkit-meter-bar{
   background-color: #433aa4;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
   .hamburgerMenu{
     display: block;
@@ -534,14 +532,12 @@ meter::-webkit-meter-bar{
     z-index: inherit;
     padding: 20px;
     width: fit-content;
-    display: none;
     position: absolute;
     top: 50px;
     flex-direction: column;
     background-image: 
-    linear-gradient(186deg, rgba(0,0,0,0), rgba(0,0,0,0) 12.71%),      
-    linear-gradient(360deg, rgba(49, 84, 129, 1), rgba(49, 84, 129, 0) 100.71%),      
-    linear-gradient(370deg, rgba(49, 84, 129, 0.01), rgba(49, 84, 129, 0.01) 100.71%);
+    linear-gradient(0deg, rgba(49, 84, 129, 1) 88%, rgba(49, 84, 129, 0) 99.71%),
+    linear-gradient(0deg, rgb(49, 84, 129, 0.6) 90%, rgba(0, 0, 0, 0) 96%);   
     align-items: center;
     opacity: 0;
     justify-content: center;
@@ -557,9 +553,8 @@ meter::-webkit-meter-bar{
     top: 50px;
     flex-direction: column;
     background-image: 
-    linear-gradient(186deg, rgba(0,0,0,0), rgba(0,0,0,0) 12.71%),      
-    linear-gradient(360deg, rgba(49, 84, 129, 1), rgba(49, 84, 129, 0) 100.71%),      
-    linear-gradient(370deg, rgba(49, 84, 129, 0.01), rgba(49, 84, 129, 0.01) 100.71%);
+    linear-gradient(0deg, rgba(49, 84, 129, 1) 88%, rgba(49, 84, 129, 0) 99.71%),
+    linear-gradient(0deg, rgb(49, 84, 129, 0.6) 90%, rgba(0, 0, 0, 0) 96%);   
     align-items: center;
     justify-content: center;
     display: flex;
@@ -617,71 +612,69 @@ meter::-webkit-meter-bar{
   }
 }
 
-@media screen and (max-width: 576px) {
+@media(max-width: 576px) {
 
-    html, body {
-        font-size: 1rem;
-    }
+  html, body {
+      font-size: 1rem;
+  }
 
-    .hamburgerMenu{
-        display: block;
-        padding: 20px;
-        background-color: transparent;
-        border: none;
-        color: white;
-        cursor: pointer;
-    }
+  .hamburgerMenu{
+      display: block;
+      padding: 20px;
+      background-color: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin: 0;
+  }
 
-    header {
-        height: 5%;
-    }
+  header {
+      height: 5%;
+  }
+  
+  header li {
+      font-size: 1.3rem;
+  }
+
+  .social ul{
     
-    header li {
-        font-size: 1.3rem;
-    }
+    padding: 0 10px 0 0;
+  }
 
-    .menuHome {
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0;
-        right: 0;
-        height: 100vh;
-        flex-direction: column;
-        background-color: #315481fb;
-        z-index: 10;
-        align-items: center;
-        justify-content: center;
-    }
+  .social a{
+    padding: 0;
+  }
 
-    h2 {
-        margin: 2% 0 -4% 0;
-    }
+  .title {
+    bottom: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 
-    .mainSection {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  h2 {
+        margin: 20px 20px 0 20px;
+  }
 
-    .asideSection {
-      flex: 0;
-    }
+  .mainSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
 
-    .artSection {
-      flex: 0;
-    }
+  .asideSection {
+    flex: 0;
+  }
 
-    .art {
-        max-width: 100%;
-    }
+  .artSection {
+    flex: 0;
+  }
 
-    .artSection p {
-        padding: 10px;
-        margin-bottom: 15%;
-    }
+  .art {
+      max-width: 100%;
+  }
 
-    .menuHome {
-        display: none;
-    }
+  .artSection p {
+      padding: 10px;
+      margin-bottom: 15%;
+  }
 }
