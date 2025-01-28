@@ -451,6 +451,12 @@ meter::-webkit-meter-bar{
     padding: 0 15px;
 }
 
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .footerRight {
   justify-content: flex-end;
   text-align: right;
