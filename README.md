@@ -40,7 +40,7 @@ ADMIN_PASSWORD=tuaPasswordSicura123
 JWT_SECRET=tuoSecretJWT
 
 # GitHub (opzionale, per rate limit maggiori)
-GITHUB_USERNAME=marcoberutti
+GITHUB_USERNAME=***
 GITHUB_TOKEN=ghp_tuoTokenGitHub
 
 # Vercel KV - automatically set by Vercel in production
@@ -67,14 +67,35 @@ Accedi all'area riservata su `/admin/login` con le credenziali configurate in `.
 
 ## 🗄️ Database & Redis
 
-Il progetto usa **Vercel KV (Redis)** per lo storage dei dati in produzione.
+Il progetto supporta **due modalità** per Redis:
 
+### 1. Vercel KV (Consigliato per Vercel)
 - In **sviluppo locale**: usa il file `data/portfolio.json` come fallback
-- In **produzione su Vercel**: i dati sono salvati automaticamente su Redis
+- In **produzione su Vercel**: i dati sono salvati automaticamente su **Vercel KV (Redis)**
+- Configurazione automatica quando crei un database KV su Vercel
+
+### 2. Redis Standard (con ioredis)
+- Supporta qualsiasi provider Redis (Railway, Render, Redis Cloud, Upstash)
+- Configura la variabile `REDIS_URL` nel `.env.local`:
+  ```env
+  REDIS_URL=redis://username:password@host:port/db
+  ```
+- Esempi provider:
+  - **Railway**: `redis://default:password@redis.railway.app:6379`
+  - **Redis Cloud**: `redis://default:password@redis-12345.cloud.redislabs.com:12345`
+  - **Upstash**: `redis://default:password@your-db.upstash.io:6379`
+  - **Locale**: `redis://localhost:6379`
+
+### Priorità Fallback
+
+L'applicazione cerca Redis in questo ordine:
+1. **REDIS_URL** (se configurato) → Redis standard con ioredis
+2. **Vercel KV** (se su Vercel con KV attivato)
+3. **JSON locale** (data/portfolio.json) - fallback sviluppo
 
 ### Inizializzazione automatica
 
-Al primo avvio, i dati da `portfolio.json` vengono caricati in Redis.
+Al primo avvio, i dati da `portfolio.json` vengono caricati automaticamente in Redis.
 
 ## 📁 Struttura del Progetto
 
@@ -108,35 +129,91 @@ Al primo avvio, i dati da `portfolio.json` vengono caricati in Redis.
 
 ## 🚀 Deploy su Vercel
 
-### 1. Connetti il repository a Vercel
+### Metodo 1: Vercel CLI (Consigliato)
+
+#### 1. Installa Vercel CLI
 
 ```bash
-npm i -g vercel
+npm install -g vercel
+```
+
+#### 2. Login e Deploy
+
+```bash
+vercel login
+cd C:\Users\marco\SVILUPPO\REACT\MY-PORTFOLIO
 vercel
 ```
 
-### 2. Configura Vercel KV
+Segui il wizard:
+- **Set up and deploy?** → Yes
+- **Which scope?** → Seleziona il tuo account
+- **Link to existing project?** → No (prima volta)
+- **Project name?** → marco-berutti-portfolio
+- **Directory?** → `.` (premi Enter)
+- **Override settings?** → No
+
+#### 3. Configura Vercel KV (Redis)
 
 1. Vai su [Vercel Dashboard](https://vercel.com/dashboard)
 2. Seleziona il tuo progetto
-3. Vai su **Storage** → **Create Database** → **KV**
-4. Vercel aggiungerà automaticamente le variabili `KV_REST_API_URL` e `KV_REST_API_TOKEN`
+3. Vai su **Storage** → **Create Database** → **KV (Redis)**
+4. Configura:
+   - **Database Name**: `portfolio-kv`
+   - **Region**: Europe (Frankfurt) o la più vicina
+5. Click **Create**
+6. Vercel aggiungerà automaticamente le variabili:
+   - `KV_REST_API_URL`
+   - `KV_REST_API_TOKEN`
+   - `KV_REST_API_READ_ONLY_TOKEN`
+   - `KV_URL`
 
-### 3. Aggiungi le Variabili d'Ambiente
+#### 4. Aggiungi le Variabili d'Ambiente
 
 Nel dashboard Vercel, vai su **Settings** → **Environment Variables** e aggiungi:
 
-- `ADMIN_USERNAME`
-- `ADMIN_PASSWORD`
-- `JWT_SECRET`
-- `GITHUB_USERNAME`
-- `GITHUB_TOKEN` (opzionale)
+```env
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=tuaPasswordSicura123!
+JWT_SECRET=GeneraConOpenSSLRand (vedi sotto)
+GITHUB_USERNAME=marcoberutti
+GITHUB_TOKEN=ghp_tuoTokenGitHub (opzionale)
+```
 
-### 4. Deploy
+**Per generare JWT_SECRET sicuro:**
+```bash
+openssl rand -base64 32
+# oppure in PowerShell:
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+```
+
+#### 5. Re-deploy
+
+Dopo aver aggiunto le variabili:
 
 ```bash
 vercel --prod
 ```
+
+### Metodo 2: Vercel Dashboard (Git)
+
+1. Push il progetto su GitHub/GitLab
+2. Vai su [vercel.com/new](https://vercel.com/new)
+3. Importa il repository
+4. Vercel rileva automaticamente Next.js
+5. Segui i passaggi 3-5 del Metodo 1
+
+---
+
+### ✅ Verifica Deploy
+
+Dopo il deploy:
+
+1. **Testa il sito**: `https://tuo-dominio.vercel.app`
+2. **Testa l'admin**: `https://tuo-dominio.vercel.app/admin/login`
+3. **Verifica Redis**: I dati dovrebbero essere caricati automaticamente dal `portfolio.json`
+
+**Nota**: Al primo accesso, l'app inizializza automaticamente Redis con i dati da `data/portfolio.json`.
 
 ## 🛠️ Comandi Disponibili
 

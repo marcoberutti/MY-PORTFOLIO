@@ -2,39 +2,62 @@
 
 import type { GitHubRepo } from '@/types';
 import { isRepoNew } from '@/lib/github';
-import { Star, GitBranch, ExternalLink, Github, Calendar, Code2, Database, Box, Braces } from 'lucide-react';
+import { 
+  Star, 
+  GitBranch, 
+  ExternalLink, 
+  Github, 
+  Calendar, 
+  Code2, 
+  Database, 
+  Box, 
+  Braces,
+  Terminal,
+  FileCode,
+  Palette,
+  Globe,
+  Gem,
+  Zap,
+  CircleDot,
+  Boxes,
+  Cpu,
+  Flame
+} from 'lucide-react';
 
 interface PortfolioProps {
   repos: GitHubRepo[];
 }
 
-// Map programming languages to lucide-react icons
+// Map programming languages to lucide-react icons with colors
 const getLanguageIcon = (language: string | null) => {
-  if (!language) return <Code2 size={16} />;
+  if (!language) return <Code2 size={16} className="text-gray-500" />;
   
   const lang = language.toLowerCase();
   
-  // Map common languages to icons
-  if (lang.includes('python')) return '🐍';
-  if (lang.includes('javascript') || lang.includes('js')) return '⚡';
-  if (lang.includes('typescript') || lang.includes('ts')) return '💙';
-  if (lang.includes('java')) return '☕';
-  if (lang.includes('php')) return '🐘';
-  if (lang.includes('c++') || lang.includes('cpp')) return '⚙️';
-  if (lang.includes('c#') || lang.includes('csharp')) return '🎯';
-  if (lang.includes('go')) return '🐹';
-  if (lang.includes('rust')) return '🦀';
-  if (lang.includes('ruby')) return '💎';
-  if (lang.includes('swift')) return '🕊️';
-  if (lang.includes('kotlin')) return '🅺';
-  if (lang.includes('html')) return '🌐';
-  if (lang.includes('css')) return '🎨';
-  if (lang.includes('shell') || lang.includes('bash')) return '🖥️';
-  if (lang.includes('sql')) return <Database size={16} />;
-  if (lang.includes('docker')) return <Box size={16} />;
+  // Map common languages to real icons with official colors
+  if (lang.includes('python')) return <Braces size={16} className="text-[#3776AB]" />;
+  if (lang.includes('javascript') || lang.includes('js')) return <Zap size={16} className="text-[#F7DF1E]" />;
+  if (lang.includes('typescript') || lang.includes('ts')) return <FileCode size={16} className="text-[#3178C6]" />;
+  if (lang.includes('java')) return <Flame size={16} className="text-[#ED8B00]" />;
+  if (lang.includes('php')) return <CircleDot size={16} className="text-[#777BB4]" />;
+  if (lang.includes('c++') || lang.includes('cpp')) return <Cpu size={16} className="text-[#00599C]" />;
+  if (lang.includes('c#') || lang.includes('csharp')) return <Box size={16} className="text-[#239120]" />;
+  if (lang.includes('go')) return <Boxes size={16} className="text-[#00ADD8]" />;
+  if (lang.includes('rust')) return <Cpu size={16} className="text-[#CE412B]" />;
+  if (lang.includes('ruby')) return <Gem size={16} className="text-[#CC342D]" />;
+  if (lang.includes('swift')) return <Zap size={16} className="text-[#FA7343]" />;
+  if (lang.includes('kotlin')) return <FileCode size={16} className="text-[#7F52FF]" />;
+  if (lang.includes('html')) return <Globe size={16} className="text-[#E34F26]" />;
+  if (lang.includes('css')) return <Palette size={16} className="text-[#1572B6]" />;
+  if (lang.includes('shell') || lang.includes('bash')) return <Terminal size={16} className="text-[#4EAA25]" />;
+  if (lang.includes('sql')) return <Database size={16} className="text-[#CC2927]" />;
+  if (lang.includes('docker')) return <Box size={16} className="text-[#2496ED]" />;
+  if (lang.includes('vue')) return <FileCode size={16} className="text-[#4FC08D]" />;
+  if (lang.includes('react')) return <Braces size={16} className="text-[#61DAFB]" />;
+  if (lang.includes('angular')) return <Boxes size={16} className="text-[#DD0031]" />;
   
   // Default icon
-  return <Code2 size={16} />;
+  return <Code2 size={16} className="text-gray-500" />;
 };
 
 export default function Portfolio({ repos }: PortfolioProps) {
@@ -95,16 +118,16 @@ export default function Portfolio({ repos }: PortfolioProps) {
               {/* Metadata */}
               <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                 {repo.language && (
-                  <span className="flex items-center gap-1.5">
+                  <span className="flex items-center gap-1.5 font-medium">
                     <span className="flex items-center justify-center">{getLanguageIcon(repo.language)}</span>
-                    {repo.language}
+                    <span className="text-gray-700">{repo.language}</span>
                   </span>
                 )}
-                <span className="flex items-center gap-1 hover:text-yellow-500 transition-colors">
+                <span className="flex items-center gap-1 hover:text-yellow-500 transition-colors cursor-default">
                   <Star className="text-yellow-400 fill-yellow-400" size={14} /> {repo.stargazers_count}
                 </span>
                 {repo.forks_count > 0 && (
-                  <span className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <span className="flex items-center gap-1 hover:text-primary transition-colors cursor-default">
                     <GitBranch size={14} /> {repo.forks_count}
                   </span>
                 )}
