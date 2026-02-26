@@ -1,0 +1,144 @@
+{
+  "personalInfo": {
+    "name": "Berutti Marco",
+    "role": "Full stack developer",
+    "location": "Italy",
+    "email": "marcoberutti90@gmail.com",
+    "phone": "+39 380 12 08 036",
+    "github": "https://github.com/marcoberutti",
+    "linkedin": "https://www.linkedin.com/in/marco-berutti-b960512a3",
+    "whatsapp": "https://api.whatsapp.com/send/?phone=393801208036&text=I am interested in your works&type=phone_number&app_absent=0",
+    "instagram": ""
+  },
+  "skills": [
+    {
+      "id": "1",
+      "name": "HTML",
+      "level": 90,
+      "category": "Frontend"
+    },
+    {
+      "id": "2",
+      "name": "CSS, SCSS",
+      "level": 90,
+      "category": "Frontend"
+    },
+    {
+      "id": "3",
+      "name": "JavaScript",
+      "level": 80,
+      "category": "Frontend"
+    },
+    {
+      "id": "4",
+      "name": "TypeScript",
+      "level": 40,
+      "category": "Frontend"
+    },
+    {
+      "id": "5",
+      "name": "React, Redux",
+      "level": 70,
+      "category": "Frontend"
+    },
+    {
+      "id": "6",
+      "name": "PHP",
+      "level": 60,
+      "category": "Backend"
+    },
+    {
+      "id": "7",
+      "name": "Laravel",
+      "level": 40,
+      "category": "Backend"
+    },
+    {
+      "id": "8",
+      "name": "NPM, GIT",
+      "level": 70,
+      "category": "Tools"
+    },
+    {
+      "id": "9",
+      "name": "SQL, MongoDB",
+      "level": 70,
+      "category": "Database"
+    },
+    {
+      "id": "10",
+      "name": "Excel",
+      "level": 90,
+      "category": "Tools"
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "year": "2009",
+      "institution": "Istituto Nostra Signora delle Grazie",
+      "title": "Communication High School, Technological Pathway",
+      "description": "Diploma"
+    },
+    {
+      "id": "2",
+      "year": "2024",
+      "institution": "Udemy",
+      "title": "Complete course for web developers",
+      "certificateUrl": "https://drive.google.com/file/d/11LQPow2zdqzvM3B8F7mXk9SB0-j3DAwW/view?usp=drive_link"
+    },
+    {
+      "id": "3",
+      "year": "2024",
+      "institution": "Musa formazione",
+      "title": "Frontend developer",
+      "certificateUrl": "https://drive.google.com/file/d/1F38KfTtwGUWG6koJknFxTClBu4vXSFYP/view?usp=drive_link"
+    },
+    {
+      "id": "4",
+      "year": "2024",
+      "institution": "Musa formazione",
+      "title": "Information Technology Specialist in HTML and CSS",
+      "certificateUrl": "https://www.credly.com/badges/79ffee15-e508-43ae-85a0-e05b6761ff3f/public_url"
+    },
+    {
+      "id": "5",
+      "year": "2024",
+      "institution": "Musa formazione",
+      "title": "Backend developer",
+      "description": "In corso"
+    }
+  ],
+  "workExperience": [
+    {
+      "id": "1",
+      "period": "2019",
+      "company": "Azienda Agricola Bressi",
+      "responsibilities": [
+        "Internship in basic agriculture"
+      ]
+    },
+    {
+      "id": "2",
+      "period": "2019-2020",
+      "company": "BiEsse SPA",
+      "responsibilities": [
+        "Basic cleanings",
+        "Picking from storage",
+        "Bartolini deliveries",
+        "International deliveries"
+      ]
+    },
+    {
+      "id": "3",
+      "period": "2021-2024",
+      "company": "Uganda: Village of Joy mission",
+      "responsibilities": [
+        "Volunteers Hosting",
+        "Accountability management",
+        "Mission management help",
+        "Website, Excel"
+      ]
+    }
+  ]
+}
