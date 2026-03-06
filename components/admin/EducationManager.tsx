@@ -42,7 +42,7 @@ export default function EducationManager({ initialEducation }: EducationManagerP
 
     try {
       const response = await fetch('/api/portfolio/education', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(education),
       });

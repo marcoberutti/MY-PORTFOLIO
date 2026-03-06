@@ -22,7 +22,7 @@ export default function PersonalInfoForm({ initialData }: PersonalInfoFormProps)
 
     try {
       const response = await fetch('/api/portfolio/personal-info', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });

@@ -70,6 +70,12 @@
       "name": "Excel",
       "level": 90,
       "category": "Tools"
+    },
+    {
+      "id": "1772818384542",
+      "name": "New Skill",
+      "level": 50,
+      "category": "Other"
     }
   ],
   "education": [

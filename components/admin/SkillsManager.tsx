@@ -42,10 +42,11 @@ export default function SkillsManager({ initialSkills }: SkillsManagerProps) {
 
     try {
       const response = await fetch('/api/portfolio/skills', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(skills),
       });
+      console.log('Save response:', response);
 
       if (!response.ok) throw new Error('Failed to save');
 

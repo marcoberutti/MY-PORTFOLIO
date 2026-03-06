@@ -73,7 +73,7 @@ export default function WorkExperienceManager({ initialWorkExperience }: WorkExp
 
     try {
       const response = await fetch('/api/portfolio/work-experience', {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(workExperience),
       });

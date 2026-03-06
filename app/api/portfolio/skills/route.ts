@@ -11,7 +11,7 @@ export async function GET() {
   }
 }
 
-export async function PUT(request: NextRequest) {
+async function handleUpdate(request: NextRequest) {
   const session = await verifySession();
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -24,4 +24,12 @@ export async function PUT(request: NextRequest) {
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update skills' }, { status: 500 });
   }
+}
+
+export async function PUT(request: NextRequest) {
+  return handleUpdate(request);
+}
+
+export async function POST(request: NextRequest) {
+  return handleUpdate(request);
 }
